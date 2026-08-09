@@ -203,7 +203,7 @@ colA, colB = st.columns(2)
 
 with colA:
 
-            if prediction == 1:
+if prediction == 1:
 
 st.error(
                   f'''
@@ -214,7 +214,7 @@ st.error(
                   '''
               )
 
-            else:
+else:
 
 st.success(
                     f'''
@@ -227,7 +227,7 @@ st.success(
 
 with colB:
 
-            st.metric(
+  st.metric(
                 "Default Probability",
                 f"{probability:.2%}"
              )
