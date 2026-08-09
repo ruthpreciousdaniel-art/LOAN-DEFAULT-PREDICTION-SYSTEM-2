@@ -32,7 +32,7 @@ with st.sidebar:
 
 st.title("📊 Project Overview")
 
-      st.markdown('''
+st.markdown('''
       ### Model is used
 
       - Logistic Regression
@@ -50,24 +50,24 @@ st.title("📊 Project Overview")
       -ML-powered decision support
       ''')
 
-      st.divider()
+st.divider()
 
-      st.info(
+st.info(
            "Built with streamlit, Scikit-Learn and XGBooost."
            )
 
     # HEADER
 
-    st.markdown(
+st.markdown(
          " 📊 Loan Default Prediction System",
          unsafe_allow_html=True
          )
 
-    st.markdown(
+st.markdown(
           "Machine Learning Powered Credit Risk Assessment Dashboard"
          )
 
-    st.divider()
+st.divider()
 
     # INPUT SECTION
 
@@ -195,9 +195,9 @@ st.title("📊 Project Overview")
            final_input_df
        )[0][1]
 
-        st.divider()
+  st.divider()
 
-        st.subheader("Prediction Result")
+  st.subheader("Prediction Result")
 
         colA, colB = st.columns(2)
 
@@ -205,7 +205,7 @@ st.title("📊 Project Overview")
 
             if prediction == 1:
 
-                st.error(
+    st.error(
                   f'''
                   HIGH DEFAULT RISK
 
