@@ -1,7 +1,7 @@
   
 import streamlit as st
 import pandas as pd
-import joblib
+ import joblib
 
 # PAGE CONFIGURATION
 
@@ -154,7 +154,7 @@ if st.button(" 📊 Predict Loan Risk"):
             'NumCreditLines': NumCreditLines,
             'DTIRatio': DTIRatio
         }
-
+ 
     # Create a DaaFrame from the input dictionary
         input_data_df = pd.DataFrame([input_data])
 
@@ -172,7 +172,7 @@ if st.button(" 📊 Predict Loan Risk"):
 
     # Create an empty DataFrame with the expected column names
         final_input_df = pd.DataFrame(columns=expected_column_names)
-
+ 
 
     # Populate the known numeric features
         for col in input_data_df.columns:
@@ -201,7 +201,7 @@ st.subheader("Prediction Result")
 
 colA, colB = st.columns(2)
 
-        with colA:
+with colA:
 
             if prediction == 1:
 
