@@ -48,9 +48,9 @@ st.markdown('''
       -Real-time prediction
       -Risk probability
       -ML-powered decision support
-      ''')
+      ''') 
 
-st.divider()
+st.divider() 
 
 st.info(
            "Built with streamlit, Scikit-Learn and XGBooost."
@@ -86,7 +86,7 @@ with col1:
             "Income",
             min_value=1000,
              value=5000
-      )
+      ) 
 
         Loan_Amount = st.number_input(
             "Loan Amount",
