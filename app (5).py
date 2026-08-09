@@ -199,7 +199,7 @@ st.divider()
 
 st.subheader("Prediction Result")
 
-        colA, colB = st.columns(2)
+colA, colB = st.columns(2)
 
         with colA:
 
