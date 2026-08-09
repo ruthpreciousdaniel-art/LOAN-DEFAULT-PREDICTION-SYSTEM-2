@@ -32,7 +32,7 @@ with st.sidebar:
 
 st.title("📊 Project Overview")
 
-st.markdown('''
+s Bt.markdown('''
       ### Model is used
 
       - Logistic Regression
@@ -85,7 +85,7 @@ with col1:
         Income = st.number_input(
             "Income",
             min_value=1000,
-            value=5000
+             value=5000
       )
 
         Loan_Amount = st.number_input(
@@ -112,14 +112,14 @@ with col2:
 
         LoanTerm = st.number_input(
             "Loan Term (Months)",
-            min_value=6,
+             min_value=6,
             max_value=360,
             value=36
       )
 
 with col3:
 
-        MonthsEmployed = st.number_input(
+         MonthsEmployed = st.number_input(
             "Months Employed",
             min_value=0,
             value=24
@@ -179,7 +179,7 @@ if st.button(" 📊 Predict Loan Risk"):
             final_input_df[col] = input_data_df[col]
 
     # Fill all other columns with (categorical one-hot encoded) with 0
-        for col in final_input_df.columns:
+         for col in final_input_df.columns:
           if col not in input_data_df.columns:
             final_input_df[col] = 0
 
@@ -203,9 +203,9 @@ colA, colB = st.columns(2)
 
 with colA:
 
-if prediction == 1:
+     if prediction == 1:
 
-st.error(
+         st.error(
                   f'''
                   HIGH DEFAULT RISK
 
