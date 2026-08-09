@@ -73,7 +73,7 @@ st.divider()
 
 col1, col2, col3 = st.columns(3)
 
-    with col1:
+with col1:
 
         Age = st.number_input(
             "Age",
@@ -94,7 +94,7 @@ col1, col2, col3 = st.columns(3)
             value=10000
       )
 
-    with col2:
+with col2:
 
         CreditScore = st.number_input(
             "Credit Score",
@@ -117,7 +117,7 @@ col1, col2, col3 = st.columns(3)
             value=36
       )
 
-    with col3:
+with col3:
 
         MonthsEmployed = st.number_input(
             "Months Employed",
@@ -195,9 +195,9 @@ col1, col2, col3 = st.columns(3)
            final_input_df
        )[0][1]
 
-  st.divider()
+st.divider()
 
-  st.subheader("Prediction Result")
+st.subheader("Prediction Result")
 
         colA, colB = st.columns(2)
 
@@ -205,7 +205,7 @@ col1, col2, col3 = st.columns(3)
 
             if prediction == 1:
 
-    st.error(
+st.error(
                   f'''
                   HIGH DEFAULT RISK
 
@@ -216,7 +216,7 @@ col1, col2, col3 = st.columns(3)
 
             else:
 
-                st.success(
+st.success(
                     f'''
                     LOW DEFAULT RISK
 
@@ -225,15 +225,15 @@ col1, col2, col3 = st.columns(3)
                     '''
               )
 
-        with colB:
+with colB:
 
             st.metric(
                 "Default Probability",
                 f"{probability:.2%}"
              )
 
-            st.progress(float(probability))
-            st.metric(
+st.progress(float(probability))
+st.metric(
                 "Risk Level",
                 "High Risk" if prediction == 1 else "Low Risk"
                 )
