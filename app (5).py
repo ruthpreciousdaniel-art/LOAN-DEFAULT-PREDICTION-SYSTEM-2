@@ -1,4 +1,4 @@
- 
+  
 import streamlit as st
 import pandas as pd
 import joblib
@@ -23,7 +23,7 @@ st.markdown('''
 
  # SIDEBAR
 
- with st.sidebar:
+with st.sidebar:
 
        st.image(
                "https://cdn-icon-png.flaticon./512/3135/3135715."
