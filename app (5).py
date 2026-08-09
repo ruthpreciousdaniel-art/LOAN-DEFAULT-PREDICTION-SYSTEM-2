@@ -30,7 +30,7 @@ with st.sidebar:
                 "width=150"
         )
 
-      st.title("📊 Project Overview")
+st.title("📊 Project Overview")
 
       st.markdown('''
       ### Model is used
