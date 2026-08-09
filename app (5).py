@@ -24,15 +24,15 @@ st.markdown('''
  # SIDEBAR
 
 with st.sidebar:
-
+ 
        st.image(
                "https://cdn-icon-png.flaticon./512/3135/3135715."
                 "width=150"
         )
-
+ 
 st.title("📊 Project Overview")
 
-s Bt.markdown('''
+st.markdown('''
       ### Model is used
 
       - Logistic Regression
