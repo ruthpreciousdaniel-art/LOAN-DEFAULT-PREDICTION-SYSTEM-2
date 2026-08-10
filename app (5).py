@@ -151,7 +151,7 @@ with col3:
 
     # PREDICTION
 
-if st.button(" 📊 Predict Loan Risk"):
+if st.button("📊 Predict Loan Risk"):
 
     # Create a Dictionary for the input features
     input_data = {
