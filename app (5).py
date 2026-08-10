@@ -57,7 +57,7 @@ st.info(
            )
 
     # HEADER
-
+ 
 st.markdown(
          " 📊 Loan Default Prediction System",
          unsafe_allow_html=True
@@ -69,69 +69,67 @@ st.markdown(
 
 st.divider()
 
-    # INPUT SECTION
+# INPUT SECTION
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
+    Age = st.number_input(
+        "Age",
+        min_value=18,
+        max_value=100,
+        value=30
+    )
 
-        Age = st.number_input(
-            "Age",
-            min_value=18,
-            max_value=100,
-            value=30
-      )
+    Income = st.number_input(
+        "Income",
+        min_value=1000,
+        value=5000
+    )
 
-        Income = st.number_input(
-            "Income",
-            min_value=1000,
-             value=5000
-      ) 
-
-        Loan_Amount = st.number_input(
-            "Loan Amount",
-            min_value=1000,
-            value=10000
-      )
+    Loan_Amount = st.number_input(
+        "Loan Amount",
+        min_value=1000,
+        value=10000
+   )
 
 with col2:
+    CreditScore = st.number_input(
+       "Credit Score",
+       min_value=300,
+       max_value=850,
+       value=650
+   )
+  
+   InterestRate = st.number_input(
+      "Interest Rate",
+      min_value=1.0,
+      max_value=40.0,
+       value=10.0
+   )
 
-        CreditScore = st.number_input(
-            "Credit Score",
-            min_value=300,
-            max_value=850,
-            value=650
-      )
-
-        InterestRate = st.number_input(
-            "Interest Rate",
-            min_value=1.0,
-            max_value=40.0,
-            value=10.0
-      )
-
-        LoanTerm = st.number_input(
-            "Loan Term (Months)",
-             min_value=6,
-            max_value=360,
-            value=36
-      )
+    LoanTerm = st.number_input(
+      "Loan Term (Months)",
+      min_value=6,
+      max_value=360,
+      value=36
+    )
 
 with col3:
+    MonthsEmployed = st.number_input(
+         "Months Employed",
+         min_value=0,
+         value=24
 
-         MonthsEmployed = st.number_input(
-            "Months Employed",
-            min_value=0,
-            value=24
-      )
+    )
 
-        NumCreditLines = st.number_input(
+    NumCreditLines = st.number_input(
             "Number of Credit Lines",
             min_value=0,
             value=5
-      )
+    )
 
-        DTIRatio = st.number_input(
+    DTIRatio = st.number_input(
             "Debt-to-Income Ratio",
             min_value=0.0,
             max_value=1.0,
@@ -143,20 +141,20 @@ with col3:
 if st.button(" 📊 Predict Loan Risk"):
 
     # Create a Dictionary for the input features
-        input_data = {
-            'Age': Age,
-            'Income': Income,
-            'LoanAmount': Loan_Amount,
-            'CreditScore': CreditScore,
-            'InterestRate': InterestRate,
-            'LoanTerm': LoanTerm,
-            'MonthsEmployed': MonthsEmployed,
-            'NumCreditLines': NumCreditLines,
-            'DTIRatio': DTIRatio
-        }
+    input_data = {
+        'Age': Age,
+        'Income': Income,
+        'LoanAmount': Loan_Amount,
+        'CreditScore': CreditScore,
+        'InterestRate': InterestRate,
+        'LoanTerm': LoanTerm,
+        'MonthsEmployed': MonthsEmployed,
+        'NumCreditLines': NvumCreditLines,
+        'DTIRatio': DTIRatio
+    }
  
     # Create a DaaFrame from the input dictionary
-        input_data_df = pd.DataFrame([input_data])
+    input_data_df = pd.DataFrame([input_data])
 
     # Get the column names from the training data X
     # This list is obtained from the kernel state 's 'X' variable.
@@ -168,81 +166,79 @@ if st.button(" 📊 Predict Loan Risk"):
            'HasMortgage_Yes', 'HasDependents_Yes', 'LoanPurpose_Business',
            'LoanPurpose_Education', 'LoanPurpose_Home', 'LoanPurpose_Other',
            'HasCoSigner_Yes'
-        ]
+    ]
 
     # Create an empty DataFrame with the expected column names
-        final_input_df = pd.DataFrame(columns=expected_column_names)
+    final_input_df = pd.DataFrame(columns=expected_column_names)
  
 
     # Populate the known numeric features
-        for col in input_data_df.columns:
-            final_input_df[col] = input_data_df[col]
+    for col in input_data_df.columns:
+        final_input_df[col] = input_data_df[col]
 
     # Fill all other columns with (categorical one-hot encoded) with 0
-         for col in final_input_df.columns:
-          if col not in input_data_df.columns:
-            final_input_df[col] = 0
+    for col in final_input_df.columns:
+        if col not in input_data_df.columns:
+           final_input_df[col] = 0
 
 
-   # Ensure the order of columns matches the training data 'X'
-        final_input_df = final_input_df[expected_column_names]
+    # Ensure the order of columns matches the training data 'X'
+    final_input_df = final_input_df[expected_column_names] 
 
+    # Make a prediction
+    prediction = model.predict(final_input_df)[0] 
 
-        prediction = model.predict(final_input_df)[0]
-
-
-        probability = model.predict_proba(
-           final_input_df
-       )[0][1]
+    # Get a probability
+    probability = model.predict_proba(final_input_df)[0][1]
 
 st.divider()
-
 st.subheader("Prediction Result")
 
 colA, colB = st.columns(2)
 
 with colA:
+    if prediction == 1:
+        st.error(
+            f'''
+            HIGH DEFAULT RISK
 
-     if prediction == 1:
+            Probability of Default:
+            {probability:.2%}
+            """
+        )
+    else:
+        st.success(
+            f'''
+            LOW DEFAULT RISK
 
-         st.error(
-                  f'''
-                  HIGH DEFAULT RISK
-
-                  Probability of Default:
-                  {probability:.2%}
-                  '''
-              )
-
-else:
-
-st.success(
-                    f'''
-                    LOW DEFAULT RISK
-
-                    Probability of Default:
-                    {probability:.2%}
-                    '''
-              )
+            Probability of Default:
+            {probability:.2%}
+            """
+        )
 
 with colB:
+    st.metric(
+        "Default Probability",
+        f"{probability:.2%}" # removed
+the extra "
+    )
 
-  st.metric(
-                "Default Probability",
-                f"{probability:.2%}"
-             )
+st.progress(float(probability)) # must
+be 0 to 1
 
-st.progress(float(probability))
 st.metric(
-                "Risk Level",
-                "High Risk" if prediction == 1 else "Low Risk"
-                )
+    "Risk Level",
+    "High Risk" if prediction == 1 else 
+"Low Risk"
+)
 
 # FOOTER
 
 st.divider()
 
 st.caption(
-     "Loan Default Prediction Dashboard | Machine Learning Project"
-  )
+     "Loan Default Prediction Dashboard 
+| Machine Learning Project"
+)
   
+
