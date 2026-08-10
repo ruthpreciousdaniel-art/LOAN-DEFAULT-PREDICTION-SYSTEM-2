@@ -219,7 +219,7 @@ if st.button("📊 Predict Loan Risk"):
               {probability:.2%}
               """
            ) 
-    else:
+else:
         st.success(
             f"""
             LOW DEFAULT RISK
