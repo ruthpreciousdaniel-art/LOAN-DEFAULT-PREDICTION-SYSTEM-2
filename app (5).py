@@ -91,7 +91,7 @@ with col1:
         "Loan Amount",
         min_value=1000,
         value=10000
-   )
+    )
 
 with col2:
     CreditScore = st.number_input(
@@ -99,14 +99,14 @@ with col2:
        min_value=300,
        max_value=850,
        value=650
-   )
+    )
   
-   InterestRate = st.number_input(
+    InterestRate = st.number_input(
       "Interest Rate",
       min_value=1.0,
       max_value=40.0,
        value=10.0
-   )
+    )
 
     LoanTerm = st.number_input(
       "Loan Term (Months)",
