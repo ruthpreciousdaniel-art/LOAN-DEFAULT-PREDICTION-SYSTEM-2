@@ -204,21 +204,21 @@ if st.button("📊 Predict Loan Risk"):
     # Get a probability
     probability = model.predict_proba(final_input_df)[0][1]
 
-st.divider()
-st.subheader("Prediction Result")
+    st.divider()
+    st.subheader("Prediction Result")
 
-colA, colB = st.columns(2)
+    colA, colB = st.columns(2)
 
-with colA:
-    if prediction == 1:
-        st.error(
-            f"""
-            HIGH DEFAULT RISK
+    with colA:
+        if prediction == 1:
+           st.error(
+              f"""
+              HIGH DEFAULT RISK
 
-            Probability of Default:
-            {probability:.2%}
-            """
-        ) 
+              Probability of Default:
+              {probability:.2%}
+              """
+           ) 
     else:
         st.success(
             f"""
