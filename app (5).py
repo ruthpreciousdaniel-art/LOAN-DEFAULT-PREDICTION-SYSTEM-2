@@ -236,8 +236,7 @@ st.metric(
 st.divider()
 
 st.caption(
-     "Loan Default Prediction Dashboard 
-| Machine Learning Project"
+     "Loan Default Prediction Dashboard | Machine Learning Project"
 )
   
 
