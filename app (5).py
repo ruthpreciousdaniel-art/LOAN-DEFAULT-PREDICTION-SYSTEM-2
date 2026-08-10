@@ -205,8 +205,7 @@ with colA:
             Probability of Default:
             {probability:.2%}
             """
-        ) # <- make sure this ) is
-here
+        ) 
     else:
         st.success(
             f"""
@@ -215,7 +214,7 @@ here
             Probability of Default:
             {probability:.2%}
             """
-        ) # <- and this )
+        ) 
 
 with colB:
     st.metric(
