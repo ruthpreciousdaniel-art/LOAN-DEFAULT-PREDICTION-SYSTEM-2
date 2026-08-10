@@ -21,8 +21,12 @@ if not os.path.exists(model_path):
     model_path + ". Upload model.pkl to Github")
     st.stop()
 
-with open(model_path, "rb") as f:
-     model = pickle.load(f)
+try:
+    with open(model_path, "rb") as file:
+     model = pickle.load(file)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+    st.stop()
 
 # CUSTOM CSS
 
