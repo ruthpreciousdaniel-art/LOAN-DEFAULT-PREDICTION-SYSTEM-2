@@ -11,20 +11,20 @@ st.set_page_config(
     page_title="Loan Default Prediction",
     page_icon="📊",
     layout="wide"
- )
+)
 
- # LOAD MODEL
- model_path = "model.pkl"
+# LOAD MODEL
+model_path = "model.pkl"
 
- if not os.path.exists(model_path):
+if not os.path.exists(model_path):
       st.error(f"Model file not found :
- {model_path}. Upload model.pkl to Github)
+{model_path}. Upload model.pkl to Github)
       st.stop
 
- with open(model_path, "rb") as f:
+with open(model_path, "rb") as f:
      model = pickel.load(f)
 
- # CUSTOM CSS
+# CUSTOM CSS
 
 st.markdown('''
 
