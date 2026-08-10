@@ -222,8 +222,7 @@ with colB:
         f"{probability:.2%}" 
     )
 
-st.progress(float(probability)) # must
-be 0 to 1
+st.progress(float(probability)) 
 
 st.metric(
     "Risk Level",
