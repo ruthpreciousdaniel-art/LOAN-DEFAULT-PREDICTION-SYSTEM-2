@@ -199,22 +199,23 @@ colA, colB = st.columns(2)
 with colA:
     if prediction == 1:
         st.error(
-            f'''
+            f"""
             HIGH DEFAULT RISK
 
             Probability of Default:
             {probability:.2%}
             """
-        )
+        ) # <- make sure this ) is
+  here
     else:
         st.success(
-            f'''
+            f"""
             LOW DEFAULT RISK
 
             Probability of Default:
             {probability:.2%}
             """
-        )
+        ) # <- and this )
 
 with colB:
     st.metric(
