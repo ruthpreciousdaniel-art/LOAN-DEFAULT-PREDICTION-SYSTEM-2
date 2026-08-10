@@ -1,7 +1,7 @@
   
 import streamlit as st
 import pandas as pd
-from joblib import load, dump
+import pickle
 
 # PAGE CONFIGURATION
 
@@ -13,7 +13,7 @@ st.set_page_config(
 
  # LOAD MODEL
 
-model = load("model.pkl")
+model = pickle.load("model.pkl")
 
  # CUSTOM CSS
 
