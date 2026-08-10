@@ -2,8 +2,10 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 
 # PAGE CONFIGURATION
+...
 
 st.set_page_config(
     page_title="Loan Default Prediction",
@@ -12,8 +14,17 @@ st.set_page_config(
  )
 
  # LOAD MODEL
+ import os
 
-model = pickle.load("model.pkl")
+model_path = "model.pkl"
+
+if not os.path.exists(model_path):
+      st.error(f"Model file not found :
+{model_path}. Upload model.pkl to Github)
+      st.stop
+
+with open(model_path, "rb") as f:
+     model = pickel.load(f)
 
  # CUSTOM CSS
 
