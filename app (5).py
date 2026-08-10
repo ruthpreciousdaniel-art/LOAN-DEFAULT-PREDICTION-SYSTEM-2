@@ -14,16 +14,14 @@ st.set_page_config(
  )
 
  # LOAD MODEL
- import os
+ model_path = "model.pkl"
 
-model_path = "model.pkl"
-
-if not os.path.exists(model_path):
+ if not os.path.exists(model_path):
       st.error(f"Model file not found :
-{model_path}. Upload model.pkl to Github)
+ {model_path}. Upload model.pkl to Github)
       st.stop
 
-with open(model_path, "rb") as f:
+ with open(model_path, "rb") as f:
      model = pickel.load(f)
 
  # CUSTOM CSS
