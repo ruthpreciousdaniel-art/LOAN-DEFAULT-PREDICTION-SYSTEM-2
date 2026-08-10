@@ -1,7 +1,7 @@
   
 import streamlit as st
 import pandas as pd
-import joblib as joblib
+from joblib import load, dump
 
 # PAGE CONFIGURATION
 
@@ -13,7 +13,7 @@ st.set_page_config(
 
  # LOAD MODEL
 
-model = joblib.load("loan_default_model.pkl")
+model = load("model.pkl")
 
  # CUSTOM CSS
 
