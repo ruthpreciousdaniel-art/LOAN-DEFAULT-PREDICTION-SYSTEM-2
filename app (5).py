@@ -219,8 +219,7 @@ with colA:
 with colB:
     st.metric(
         "Default Probability",
-        f"{probability:.2%}" # removed
-the extra "
+        f"{probability:.2%}" 
     )
 
 st.progress(float(probability)) # must
