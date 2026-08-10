@@ -158,7 +158,7 @@ if st.button(" 📊 Predict Loan Risk"):
 
     # Get the column names from the training data X
     # This list is obtained from the kernel state 's 'X' variable.
-        expected_column_names = [
+    expected_column_names = [
             'Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed',
            'NumCreditLines', 'InterestRate', 'LoanTerm', 'DTIRatio',
            'Education_High School',"Education_Master's", 'Education_PhD',
