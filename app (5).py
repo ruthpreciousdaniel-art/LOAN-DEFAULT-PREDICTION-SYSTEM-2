@@ -17,9 +17,9 @@ st.set_page_config(
 model_path = "model.pkl"
 
 if not os.path.exists(model_path):
-      st.error(f"Model file not found :
+    st.error(f"Model file not found :
 {model_path}. Upload model.pkl to Github)
-      st.stop
+    st.stop
 
 with open(model_path, "rb") as f:
      model = pickel.load(f)
