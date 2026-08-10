@@ -22,7 +22,7 @@ if not os.path.exists(model_path):
     st.stop()
 
 with open(model_path, "rb") as f:
-     model = pickel.load(f)
+     model = pickle.load(f)
 
 # CUSTOM CSS
 
